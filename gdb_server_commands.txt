@@ -1,0 +1,1 @@
+set substitute-path work ~/exercise/demos/linux_STM32CubeIDE_demo
