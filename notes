@@ -1,0 +1,17 @@
+Create Docker network:
+docker network create -d bridge my-net
+
+Start the following containers:
+
+docker run -ti -v /home/omnidev1/Documents/AXEM/linux_STM32CubeIDE_demo:/work --privileged --network=my-net --name stlink_org_container stlink_org:latest
+
+docker run -ti -v /home/omnidev1/Documents/AXEM/linux_STM32CubeIDE_demo:/work  --network=my-net --name make_gnu_arm_container sttest:v1.0.0
+
+In repo make sure to use valid stlink IP addr
+
+in Stlink container start st-utils 
+
+Open VScode
+Select make gnu arm container -> Start debug with F5
+
+
