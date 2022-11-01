@@ -1,4 +1,4 @@
-objs/mocks/LightControllerTestSpy.o: mocks/LightControllerTestSpy.cpp \
+objs/tests/sumTest.o: tests/sumTest.cpp \
  /home/janos/Downloads/cpputest-latest/include/CppUTest/MemoryLeakDetectorNewMacros.h \
  /home/janos/Downloads/cpputest-latest/include/CppUTest/CppUTestConfig.h \
  /home/janos/Downloads/cpputest-latest/include/CppUTest/CppUTestGeneratedConfig.h \
@@ -13,7 +13,7 @@ objs/mocks/LightControllerTestSpy.o: mocks/LightControllerTestSpy.cpp \
  /home/janos/Downloads/cpputest-latest/include/CppUTest/TestPlugin.h \
  /home/janos/Downloads/cpputest-latest/include/CppUTest/MemoryLeakWarningPlugin.h \
  /home/janos/Downloads/cpputest-latest/include/CppUTest/MemoryLeakDetectorNewMacros.h \
- mocks/LightControllerSpy.h include/HomeAutomation/LightController.h
+ tests/../../src/sum.h
 /home/janos/Downloads/cpputest-latest/include/CppUTest/MemoryLeakDetectorNewMacros.h:
 /home/janos/Downloads/cpputest-latest/include/CppUTest/CppUTestConfig.h:
 /home/janos/Downloads/cpputest-latest/include/CppUTest/CppUTestGeneratedConfig.h:
@@ -28,5 +28,4 @@ objs/mocks/LightControllerTestSpy.o: mocks/LightControllerTestSpy.cpp \
 /home/janos/Downloads/cpputest-latest/include/CppUTest/TestPlugin.h:
 /home/janos/Downloads/cpputest-latest/include/CppUTest/MemoryLeakWarningPlugin.h:
 /home/janos/Downloads/cpputest-latest/include/CppUTest/MemoryLeakDetectorNewMacros.h:
-mocks/LightControllerSpy.h:
-include/HomeAutomation/LightController.h:
+tests/../../src/sum.h:

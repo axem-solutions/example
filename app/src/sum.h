@@ -1,0 +1,1 @@
+unsigned int sum( unsigned char number );

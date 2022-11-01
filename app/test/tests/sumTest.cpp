@@ -16,37 +16,51 @@
 //-    www.renaissancesoftware.net james@renaissancesoftware.net      
 //- ------------------------------------------------------------------
 
+
+#include "string.h"
 #include "CppUTest/TestHarness.h"
 
 extern "C"
 {
-#include "TimeService.h"
-#include "FakeTimeService.h"
+    #include "../../src/sum.h"
 }
 
-TEST_GROUP(TimeService)
+TEST_GROUP(sum_tests)
 {
     void setup()
     {
-      TimeService_Create();
     }
-
-    void teardown()
+    void destroy()
     {
-       TimeService_Destroy();
     }
 };
 
-TEST(TimeService, Create)
+TEST(sum_tests, SumOf0is0)
 {
-    LONGS_EQUAL(-1, TimeService_GetMinute());
-    LONGS_EQUAL(-1, TimeService_GetDay());
+    BYTES_EQUAL( 0u, sum( 0u ) );
 }
 
-TEST(TimeService, Set)
+TEST(sum_tests, SumOf1is1)
 {
-    FakeTimeService_SetMinute(42);
-    LONGS_EQUAL(42, TimeService_GetMinute());
-    FakeTimeService_SetDay(3);
-    LONGS_EQUAL(3, TimeService_GetDay());
+    BYTES_EQUAL( 1u, sum( 1u ) );
+}
+
+TEST(sum_tests, SumOf2is3)
+{
+    BYTES_EQUAL( 3u, sum( 2u ) );
+}
+
+TEST(sum_tests, SumOf3is6)
+{
+    BYTES_EQUAL( 6u, sum( 3u ) );
+}
+
+TEST(sum_tests, SumOf4is10)
+{
+    BYTES_EQUAL( 10u, sum( 4u ) );
+}
+
+TEST(sum_tests, SumOf255is32640)
+{
+    BYTES_EQUAL( 32640u, sum( 255u ) );
 }
