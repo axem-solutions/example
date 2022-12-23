@@ -7,7 +7,7 @@ docker_image_reg_name=$(jq -e '."build"' INFRASTRUCTURE/descriptor.json | tr -d 
 if [[ "x$(docker image ls --filter reference=${docker_image_reg_name} -q)" == "x" ]]; then  
   echo "Not find it create build docker image"  
   echo "Build: ${docker_image_reg_name}" 
-  pushd INFRASTRUCTURE/build
+  pushd INFRASTRUCTURE/BUILD
 	docker build -t ${docker_image_reg_name} .	
   popd
   

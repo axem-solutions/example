@@ -3,23 +3,28 @@ FROM debian:latest
 WORKDIR /work
 
 
-
-
 RUN apt-get update
-RUN apt-get -y install gcc \
+RUN apt-get -y install git \
 					   gdb \					   
+					   libusb-1.0-0-dev \
+					   usbutils \
+					   make \
 					   cmake \
-					   wget \
-					   bzip2
+					   gcc \
+					   build-essential
 					   
 					   
-RUN wget https://developer.arm.com/-/media/Files/downloads/gnu-rm/10.3-2021.10/gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 \
-&& tar -xjf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 \
-&& rm gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 \
-&& mv gcc-arm-none-eabi-10.3-2021.10 /opt/gcc-arm
+RUN cd $HOME \
+&& git clone https://github.com/stlink-org/stlink \
+&& cd stlink \
+&& cmake .\
+&& make \
+&& cd bin \
+&& cp st-* /usr/local/bin \
+&& cd ../lib \
+&& cp *.so* /lib
 
-
-ENV PATH=”/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/usr/X11/bin:/opt/gcc-arm/bin:${PATH}”
+ENV PATH=”/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:$HOME/stlink/build/Release/_install/usr/local/bin:${PATH}”
 
 
 					   
