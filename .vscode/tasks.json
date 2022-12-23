@@ -6,7 +6,7 @@
         {
             "label": "Build Project",
             "type": "shell",
-            "command": "BUILD/build.sh"
+            "command": "INFRASTRUCTURE/BUILD/build.sh"
         },
         {
             "label": "Run unit tests",
