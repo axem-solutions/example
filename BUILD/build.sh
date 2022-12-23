@@ -2,12 +2,24 @@
 
 echo "Build ..."
 
-#docker run -v /home/deveushu/Documents/Test_C:/app axem:latest 
-echo $(pwd)
-#ls -la $(pwd)/../_dummy_project
-docker run --rm -ti -v "$(pwd)":/work --name make_gnu_arm_container make_gnu_arm /bin/sh -c "ls -la; make"
+docker_image_reg_name=$(jq -e '."build"' INFRASTRUCTURE/descriptor.json | tr -d \")
 
-#"cd app; gcc main.c -o indocker; ./indocker"
+if [[ "x$(docker image ls --filter reference=${docker_image_reg_name} -q)" == "x" ]]; then  
+  echo "Not find it create build docker image"  
+  echo "Build: ${docker_image_reg_name}" 
+  pushd INFRASTRUCTURE/build
+	docker build -t ${docker_image_reg_name} .	
+  popd
+  
+else
+  echo "${docker_image_reg_name}" 
+  echo "Docker image exist"
+  echo "image ID:$(docker image ls --filter reference=${docker_image_reg_name} -q)" 
+fi
+
+echo $(pwd)
+docker run --rm -ti -v "$(pwd)":/work ${docker_image_reg_name} /bin/sh -c "ls -la; make"
+
 
 
 
