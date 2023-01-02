@@ -1,6 +1,7 @@
 *.dep
 *.o
 *.d
+*.a
 *.swp
 *.bin
 *.elf
