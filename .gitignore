@@ -1,0 +1,10 @@
+*.dep
+*.o
+*.d
+*.swp
+*.bin
+*.elf
+*.hex
+*.map
+*.lst
+build/
