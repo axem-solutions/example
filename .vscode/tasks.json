@@ -6,12 +6,17 @@
         {
             "label": "Build Project",
             "type": "shell",
-            "command": "INFRASTRUCTURE/BUILD/build.sh"
+            "command": "axem/BUILD/build.sh"
+        },
+        {
+            "label": "Deploy to target",
+            "type": "shell",
+            "command": "axem/DEPLOY/deploy.sh"
         },
         {
             "label": "Run unit tests",
             "type": "shell",
-            "command": "TEST/unit_test.sh"
+            "command": "axem/TEST/unit_test.sh"
         }
     ]
 }
