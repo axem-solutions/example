@@ -13,21 +13,22 @@ CPP_PLATFORM = Gcc
 CPPUTEST_WARNINGFLAGS += -Wall 
 CPPUTEST_WARNINGFLAGS += -Wswitch-default 
 CPPUTEST_WARNINGFLAGS += -Wswitch-enum  
-CPPUTEST_CFLAGS += -std=c89
 CPPUTEST_CFLAGS += -Wextra 
-CPPUTEST_CFLAGS += -pedantic 
-CPPUTEST_CFLAGS += -Wstrict-prototypes
 
 SRC_DIRS = ../../app/src
 
 TEST_SRC_DIRS = \
 	tests \
-	tests/HomeAutomation
 	
-INCLUDE_DIRS =\
-	$(CPPUTEST_HOME)/include/\
-	include/*\
-	SRC_DIRS = ../../app/src
+INCLUDE_DIRS = \
+	$(CPPUTEST_HOME)/include/ \
+	../../Drivers/STM32F1xx_HAL_Driver/Inc \
+	../../Core/Inc \
+	../../Drivers/CMSIS/Device/ST/STM32F1xx/Include \
+	../../Drivers/CMSIS/Include/
+
+CPPUTEST_ADDITIONAL_CFLAGS = \
+	-DSTM32F103xB
   
 ifeq ($(CPPUTEST_HOME),)
 $(info CPPUTEST_HOME not set! See README.txt)

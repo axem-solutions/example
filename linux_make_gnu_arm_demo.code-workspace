@@ -3,5 +3,18 @@
 		{
 			"path": "."
 		}
-	]
+	],
+	"settings": {
+		"files.associations": {
+			"main.h": "c",
+			"stm32f1xx_hal.h": "c",
+			"stm32f1xx_hal_conf.h": "c",
+			"stm32f1xx.h": "c",
+			"cstdint": "c",
+			"stm32f1xx_hal_rcc.h": "c",
+			"stm32f1xx_hal_def.h": "c",
+			"stddef.h": "c",
+			"stm32f103xb.h": "c"
+		}
+	}
 }
