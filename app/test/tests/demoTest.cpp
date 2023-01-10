@@ -1,53 +1,40 @@
-//- ------------------------------------------------------------------
-//-    Copyright (c) James W. Grenning -- All Rights Reserved         
-//-    For use by owners of Test-Driven Development for Embedded C,   
-//-    and attendees of Renaissance Software Consulting, Co. training 
-//-    classes.                                                       
-//-                                                                   
-//-    Available at http://pragprog.com/titles/jgade/                 
-//-        ISBN 1-934356-62-X, ISBN13 978-1-934356-62-3               
-//-                                                                   
-//-    Authorized users may use this source code in your own          
-//-    projects, however the source code may not be used to           
-//-    create training material, courses, books, articles, and        
-//-    the like. We make no guarantees that this source code is       
-//-    fit for any purpose.                                           
-//-                                                                   
-//-    www.renaissancesoftware.net james@renaissancesoftware.net      
-//- ------------------------------------------------------------------
+#include <stdio.h>
 
-
-#include "string.h"
 #include "CppUTest/TestHarness.h"
 #include "CppUTestExt/MockSupport.h"
 
+
 extern "C"
 {
+    /* Header for unit under test. */
     #include "../../src/demo.h"
+
+    /* Headers for mocked functions. */
+    #include "stm32f1xx_hal.h"
+
+    TIM_HandleTypeDef htim1;
 }
 
 TEST_GROUP( demo_tests )
 {
-    void setup()
+    void teardown()
     {
-    }
-    void destroy()
-    {
-        // mock().clear();
+        mock().clear();
     }
 };
 
-void sum( unsigned char number )
-{
-    // mock().actualCall( "sum" );
-}
 
-TEST( demo_tests, expect_sum_call )
+TEST( demo_tests, expect_HAL_TIM_Base_Start_IT_with_NULL )
 {
-    uint32_t cica;
+    printf( "test htim: %x\r\n", &htim1 );
 
-    cica = 10u;
-    // mock().expectOneCall( "sum" );
-    // demo();
-    // mock().checkExpectations();
+    mock( "stm32f1xx_hal_tim" )
+        .expectOneCall( "HAL_TIM_Base_Start_IT" )
+        .withParameter( "htim", &htim1 )
+        .andReturnValue( HAL_OK );
+
+    demo();
+
+    mock( "stm32f1xx_hal_tim" )
+        .checkExpectations();
 }

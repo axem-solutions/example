@@ -3,12 +3,12 @@
 #include "stm32f1xx_hal.h"
 
 #include "demo.h"
-#include "sum.h"
 
+
+extern TIM_HandleTypeDef htim1;
 
 void demo( void )
 {
-	uint32_t cica = 10u;
-
-	sum( cica );
+	printf( "prod htim: %d \n\r", &htim1 );
+	HAL_TIM_Base_Start_IT( &htim1 );
 }

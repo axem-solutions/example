@@ -14,7 +14,11 @@
 			"stm32f1xx_hal_rcc.h": "c",
 			"stm32f1xx_hal_def.h": "c",
 			"stddef.h": "c",
-			"stm32f103xb.h": "c"
+			"stm32f103xb.h": "c",
+			"stdint.h": "c",
+			"*.tcc": "cpp",
+			"sum.h": "c",
+			"demo.h": "c"
 		}
 	}
 }

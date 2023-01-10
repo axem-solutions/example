@@ -13,25 +13,33 @@ CPP_PLATFORM = Gcc
 CPPUTEST_WARNINGFLAGS += -Wall 
 CPPUTEST_WARNINGFLAGS += -Wswitch-default 
 CPPUTEST_WARNINGFLAGS += -Wswitch-enum  
+
 CPPUTEST_CFLAGS += -Wextra 
 
-SRC_DIRS = ../../app/src
+CPPUTEST_ADDITIONAL_CFLAGS = \
+	-DSTM32F103xB
 
-TEST_SRC_DIRS = \
-	tests \
-	
+CPPUTEST_CXXFLAGS += \
+	-DSTM32F103xB
+
 INCLUDE_DIRS = \
 	$(CPPUTEST_HOME)/include/ \
 	../../Drivers/STM32F1xx_HAL_Driver/Inc \
 	../../Core/Inc \
 	../../Drivers/CMSIS/Device/ST/STM32F1xx/Include \
-	../../Drivers/CMSIS/Include/
+	../../Drivers/CMSIS/Include
 
-CPPUTEST_ADDITIONAL_CFLAGS = \
-	-DSTM32F103xB
-  
-ifeq ($(CPPUTEST_HOME),)
-$(info CPPUTEST_HOME not set! See README.txt)
-else  
+SRC_DIRS = \
+	../../app/src
+
+TEST_SRC_DIRS = \
+	tests
+
+MOCKS_SRC_DIRS = \
+	mocks
+
+CPPUTEST_USE_EXTENSIONS = Y
+
+CPPUTEST_HOME = /opt/cpputest
+
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk
-endif
