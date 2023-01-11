@@ -21,3 +21,12 @@ void HAL_TIM_PeriodElapsedCallback( TIM_HandleTypeDef * p_htim )
     HAL_GPIO_TogglePin( GPIOA, GPIO_PIN_5 );
   }
 }
+
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
+{
+    if ( GPIO_PIN_13 == GPIO_Pin )
+    {
+        (void)HAL_TIM_Base_Stop_IT( &htim1 );
+        HAL_GPIO_WritePin( GPIOA, GPIO_PIN_5, GPIO_PIN_RESET );
+    }
+}
