@@ -2,4 +2,4 @@ FROM debian:latest
 
 WORKDIR /work
 RUN apt update -y && apt upgrade -y
-RUN apt install stlink-tools -y
+RUN apt-get install stlink-tools -y
