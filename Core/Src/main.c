@@ -266,13 +266,6 @@ static void MX_GPIO_Init(void)
 
 /* USER CODE BEGIN 4 */
 
-void HAL_TIM_PeriodElapsedCallback( TIM_HandleTypeDef * p_htim )
-{
-  if ( p_htim == &htim1 )
-  {
-    HAL_GPIO_TogglePin( GPIOA, GPIO_PIN_5 );
-  }
-}
 
 /* USER CODE END 4 */
 
