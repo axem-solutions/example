@@ -26,8 +26,6 @@ TEST_GROUP( demo_tests )
 
 TEST( demo_tests, expect_HAL_TIM_Base_Start_IT_with_NULL )
 {
-    printf( "test htim: %x\r\n", &htim1 );
-
     mock( "stm32f1xx_hal_tim" )
         .expectOneCall( "HAL_TIM_Base_Start_IT" )
         .withParameter( "htim", &htim1 )
