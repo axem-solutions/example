@@ -1,0 +1,8 @@
+{
+	"image": "make_gnu_arm:latest",
+	"customizations": {
+		"vscode": {
+			"extensions": ["marus25.cortex-debug"]
+		}
+	}
+}

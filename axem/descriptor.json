@@ -1,4 +1,4 @@
 {
-	"build":"make_gnu_arm:v1.0.0",
-	"deploy":"stlink_org:v1.0.0"	
+	"build":"make_gnu_arm:latest",
+	"deploy":"stlink_org:latest"
 }
