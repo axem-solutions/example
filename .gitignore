@@ -8,4 +8,5 @@
 *.hex
 *.map
 *.lst
+app/test/demo_tests
 build/
