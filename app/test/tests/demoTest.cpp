@@ -42,7 +42,6 @@ TEST( demo_tests, if_error_expect_led_on )
         .expectOneCall( "HAL_TIM_Base_Start_IT" )
         .withParameter( "htim", &htim1 )
         .andReturnValue( HAL_ERROR );
-
     mock( "stm32f1xx_hal_gpio" )
         .expectOneCall( "HAL_GPIO_WritePin" )
 		.withParameter( "GPIOx", GPIOA )
@@ -63,12 +62,12 @@ TEST_GROUP( interrupt_cb_tests )
     }
 };
 
-TEST( interrupt_cb_tests, if_not_called_with_htim1_do_nothing )
+TEST( interrupt_cb_tests, if_tim_called_with_not_htim1_do_nothing )
 {
     HAL_TIM_PeriodElapsedCallback( NULL );
 }
 
-TEST( interrupt_cb_tests, if_called_with_htim1_toggle_led )
+TEST( interrupt_cb_tests, if_tim_called_with_htim1_toggle_led )
 {
     mock( "stm32f1xx_hal_gpio" )
         .expectOneCall( "HAL_GPIO_TogglePin" )
@@ -77,5 +76,28 @@ TEST( interrupt_cb_tests, if_called_with_htim1_toggle_led )
 
     HAL_TIM_PeriodElapsedCallback( &htim1 );
 
+    mock( "stm32f1xx_hal_gpio" ).checkExpectations();
+}
+
+TEST( interrupt_cb_tests, if_exti_called_with_not_pin13_do_nothing )
+{
+    HAL_GPIO_EXTI_Callback( 0 );
+}
+
+TEST( interrupt_cb_tests, if_exti_called_with_pin13_stop_blinking )
+{
+    mock( "stm32f1xx_hal_tim" )
+        .expectOneCall( "HAL_TIM_Base_Stop_IT" )
+        .withParameter( "htim", &htim1 )
+        .andReturnValue( HAL_OK );
+    mock( "stm32f1xx_hal_gpio" )
+        .expectOneCall( "HAL_GPIO_WritePin" )
+		.withParameter( "GPIOx", GPIOA )
+		.withParameter( "GPIO_Pin", GPIO_PIN_5 )
+		.withParameter( "PinState", GPIO_PIN_RESET );
+
+    HAL_GPIO_EXTI_Callback( GPIO_PIN_13 );
+
+    mock( "stm32f1xx_hal_tim" ).checkExpectations();
     mock( "stm32f1xx_hal_gpio" ).checkExpectations();
 }
