@@ -17,8 +17,15 @@ else
   echo "image ID:$(docker image ls --filter reference=${docker_image_reg_name} -q)" 
 fi
 
-echo $(pwd)
-docker run --rm -ti -v "$(pwd)":/work ${docker_image_reg_name} /bin/sh -c "ls -la; make"
+
+if [[ "${PROJECT_DIR}" == "" ]]; then  
+  docker run --rm -v "$(pwd)":/work ${docker_image_reg_name} /bin/sh -c "ls -la; make"
+  echo "here"
+else
+  docker run --rm -v "${PROJECT_DIR}":/work ${docker_image_reg_name} /bin/sh -c "ls -la; make"
+fi
+
+
 
 
 
