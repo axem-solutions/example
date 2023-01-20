@@ -11,7 +11,7 @@
 				"request": "launch",
 				"type": "cortex-debug",
 				"servertype": "external",
-				"gdbTarget": "172.18.0.3:4242",
+				"gdbTarget": "stlink_org_container:4242",
 				"armToolchainPath": "/opt/gcc-arm/bin",
 				"device": "STM32F103RB",
 				"showDevDebugOutput": "raw"

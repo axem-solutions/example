@@ -40,6 +40,8 @@ MOCKS_SRC_DIRS = \
 
 CPPUTEST_USE_EXTENSIONS = Y
 
-CPPUTEST_HOME = /opt/cpputest
+ifeq "$(CPPUTEST_HOME)" ""
+    $(error The CPPUTEST_HOME env variable is not set.)
+endif
 
 include $(CPPUTEST_HOME)/build/MakefileWorker.mk

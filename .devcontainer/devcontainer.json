@@ -1,0 +1,10 @@
+{
+	"dockerComposeFile": "docker-compose.yml",
+	"service": "gdb",
+	"workspaceFolder": "/work",
+	"customizations": {
+		"vscode": {
+			"extensions": ["marus25.cortex-debug"]
+		}
+	}
+}

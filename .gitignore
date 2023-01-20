@@ -8,5 +8,6 @@
 *.hex
 *.map
 *.lst
+.cortex-debug.registers.state.json
 app/test/demo_tests
 build/
