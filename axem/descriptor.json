@@ -1,4 +1,5 @@
 {
 	"build":"make_gnu_arm:latest",
-	"deploy":"stlink_org:latest"
+	"deploy":"stlink_org:latest",
+	"testframework":"testframework:latest"
 }
