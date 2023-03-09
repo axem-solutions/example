@@ -18,5 +18,5 @@ else
 fi
 
 echo $(pwd)
-docker run --rm -v "$(pwd)":/work --name testframework_container testframework /bin/sh -c "cd app/test; make"
+docker run --rm -v "$(pwd)":/work --name testframework_container ${docker_image_reg_name} /bin/sh -c "cd app/test; make"
 
