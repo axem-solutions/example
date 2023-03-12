@@ -1,5 +1,5 @@
 {
-	"build":"make_gnu_arm:latest",
-	"deploy":"stlink_org:latest",
-	"testframework":"testframework:latest"
+	"build":"axemsolutions/make_gnu_arm:latest",
+	"deploy":"axemsolutions/stlink_org:latest",
+	"testframework":"axemsolutions/cpputest:latest"
 }
