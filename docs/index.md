@@ -29,7 +29,9 @@ into writing the embedded software.
 
 In this tutorial we create the typical embedded *hello world* project - blinking LEDs on the board. 
 
-- The target is an STM32F103 on a NUCLEO-F103RB board.
+- The example target is an STM32F103 on a NUCLEO-F103RB board. (Of course you can follow the
+tutorial with the processor of your choice, but then you need to handle the hardware specific parts
+by yourself.)
 - The project skeleton gets generated with the STM32CubeMX tool, so the HAL provided by ST can be 
 used.
 - The following tools are used for the example project's Development Environment:

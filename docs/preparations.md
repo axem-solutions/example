@@ -25,6 +25,41 @@ the containerized tools.
 
 Nevertheless, all the not VSCode specific steps can be followed with any other editor. 
 
-## The base example project
+## The base of the example project
 
-We would like to write a very simple application for our target bourd. When creating software for embedded systems - 
+We would like to write a very simple application for our target bourd. When creating software 
+applications for embedded systems - even for very simple ones like LED blinking - some additional 
+functionality needed:
+
+- Startup: instructions to bring up the processor to operate on a very basic level.
+- Hardware Abstraction Layer: interfaces to communicate with the peripherals. In our case the GPIO.
+
+Implementing the above functionality is not in the scope of this tutorial, so we use ST's solution 
+to generate it, the STM32CubeMX. 
+
+!!! note
+
+    You can skip the upcoming part if you use the example NUCLEO-F103RB board, and you don't want to 
+    generate the project skeleton. Clone the example repo:
+        `git clone https://github.com/axem-solutions/example`
+
+### Run the STM32CubeMX
+
+You need to install the STM32CubeMX for you host PC.
+[:material-link: Installation](https://www.st.com/en/development-tools/stm32cubemx.html)
+
+Start the STM32CubeMX application. 
+
+!!! note
+
+    For this tutorial I used version 6.8.1
+
+### Generate the skeleton project
+
+1. Select **ACCESS TO BOARD SELECTOR**.
+2. In the new window be sure you are at the **Board Selector** tab. 
+    1. In **Commercial Part Number** dropdown menu select **NUCLEO-F103RB**. 
+    2. Select the board from the **Boards List**.
+    3. Press **Start Project**
+3. The CubeMX prompts a question to initialize all peripherals with their default mode. 
+Select **Yes**.
