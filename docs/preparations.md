@@ -62,4 +62,18 @@ Start the STM32CubeMX application.
     2. Select the board from the **Boards List**.
     3. Press **Start Project**
 3. The CubeMX prompts a question to initialize all peripherals with their default mode. 
-Select **Yes**.
+Select **Yes**. For this basic task we only need to modify a few things.
+4. On the Pinout & Configuration tab under **Timers** select **TIM1**. We need a timer for the 
+blinking.
+    1. Select the **Internal Clock** as Clock Source.
+    2. On the Parameter Settings tab set the **Prescaler** value to **63999** and the 
+    **Counter Period** to **499**. As the default clock routed for this peripheral is 64MHz, we get 
+    a ms counter.
+    3. On the NVIC Settings **enable** the **TIM1 update interrupt**. After 500 counts an interrupt
+    gets generated so now we have a 0.5s scheduler.
+5. On the Project Manager tab:
+    1. Set the **Project Name**.
+    2. Set the **Project Location**.
+    3. From the **Toolchain / IDE** dropdown select **Makefile**.
+5. No more modifications needed, the rest of the settings can remain as default.
+6. Finally you can generate the project skeleton by selecting **GENERATE CODE**.
