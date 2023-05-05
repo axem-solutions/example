@@ -6,17 +6,17 @@
         {
             "label": "Build Project",
             "type": "shell",
-            "command": "axem/BUILD/build.sh"
+            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/make_gnu_arm make"
         },
         {
             "label": "Deploy to target",
             "type": "shell",
-            "command": "axem/DEPLOY/deploy.sh"
+            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/cpputest /bin/sh -c \"cd app/test; make\""
         },
         {
             "label": "Run unit tests",
             "type": "shell",
-            "command": "axem/TEST/unit_test.sh"
+            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/cpputest /bin/sh -c \"cd app/test; make\""
         }
     ]
 }

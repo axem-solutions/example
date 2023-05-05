@@ -150,6 +150,13 @@ int main(void)
 }
 ```
 
+Finally we need to tell the build system to include the application source. In the generated
+makefile append the `app/src/demo.c` to the C_SOURCES. 
+
+!!! warning
+
+    Don't forget to add a trailing backslash (\) to the above line!
+
 ## The test cases
 
 We also create some tests to try out our containerized test environment.
@@ -391,6 +398,65 @@ TEST( interrupt_cb_tests, if_exti_called_and_tim_state_is_invalid_expect_led_on 
     HAL_GPIO_EXTI_Callback( GPIO_PIN_13 );
 
     mock( "stm32f1xx_hal_gpio" ).checkExpectations();
+}
+```
+
+We would like to mock the HAL calls in the demo.c. A solution for this is creating our own mock 
+files: stm32f1xx_hal_gpioMock.cpp and stm32f1xx_hal_timMock.cpp. Place these files under the 
+`app/test/mocks` directory.
+
+``` c title="stm32f1xx_hal_gpioMock.cpp"
+#include <stdio.h>
+
+#include "CppUTestExt/MockSupport.h"
+
+extern "C"
+{
+    #include "stm32f1xx_hal.h"
+}
+
+void HAL_GPIO_WritePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin, GPIO_PinState PinState)
+{
+    mock( "stm32f1xx_hal_gpio" )
+        .actualCall( "HAL_GPIO_WritePin" )
+        .withParameter( "GPIOx", GPIOx )
+        .withParameter( "GPIO_Pin", GPIO_Pin )
+        .withParameter( "PinState", PinState );
+}
+
+void HAL_GPIO_TogglePin(GPIO_TypeDef *GPIOx, uint16_t GPIO_Pin)
+{
+    mock( "stm32f1xx_hal_gpio" )
+        .actualCall( "HAL_GPIO_TogglePin" )
+        .withParameter( "GPIOx", GPIOx )
+        .withParameter( "GPIO_Pin", GPIO_Pin );
+}
+```
+
+``` c title="stm32f1xx_hal_timMock.cpp"
+#include <stdio.h>
+
+#include "CppUTestExt/MockSupport.h"
+
+extern "C"
+{
+    #include "stm32f1xx_hal.h"
+}
+
+HAL_StatusTypeDef HAL_TIM_Base_Start_IT( TIM_HandleTypeDef * htim )
+{
+    return (HAL_StatusTypeDef)mock( "stm32f1xx_hal_tim" )
+        .actualCall( "HAL_TIM_Base_Start_IT" )
+        .withParameter( "htim", htim )
+        .returnValue().getIntValue();
+}
+
+HAL_StatusTypeDef HAL_TIM_Base_Stop_IT(TIM_HandleTypeDef *htim)
+{
+    return (HAL_StatusTypeDef)mock( "stm32f1xx_hal_tim" )
+        .actualCall( "HAL_TIM_Base_Stop_IT" )
+        .withParameter( "htim", htim )
+        .returnValue().getIntValue();
 }
 ```
 
