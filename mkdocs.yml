@@ -19,6 +19,7 @@ theme:
     - navigation.instant
     - navigation.tracking
     - navigation.footer
+    - content.code.copy
   icon:
     repo: fontawesome/brands/github
   logo: wp-content/uploads/2023/03/x_w.png
@@ -70,7 +71,9 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.highlight
 
 nav:
   - 'index.md'
   - 'preparations.md'
+  - 'dev_env.md'

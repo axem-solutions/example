@@ -13,7 +13,7 @@ challenges of embedded development.
 The tutorial covers the following topics:
 
 1. How to set up and manage a Development Environment for your PC to use containerized tools?
-2. How to containerize a tool?
+2. How to create a new Development Environment?
 3. How to use the containerized Development Environment with VS code?
 
 At the end of the tutorial you should be able to set up a working Development Environment and dive 
