@@ -37,11 +37,11 @@ functionality needed:
 Implementing the above functionality is not in the scope of this tutorial, so we use ST's solution 
 to generate it, the STM32CubeMX. 
 
-!!! note
+!!! tip
 
-    You can skip the upcoming part if you use the example NUCLEO-F103RB board, and you don't want to 
-    generate the project skeleton. Clone the example repo:
-        `git clone https://github.com/axem-solutions/example`
+    You can jump to [CLI usage](cli_usage.md) or [VSCode integration] if you use the example 
+    NUCLEO-F103RB board, and you don't want to write the example application. 
+    Clone the example repo: `git clone https://github.com/axem-solutions/example`
 
 ### Run the STM32CubeMX
 

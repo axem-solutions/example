@@ -71,9 +71,17 @@ markdown_extensions:
   - pymdownx.emoji:
       emoji_index: !!python/name:materialx.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      use_pygments: true
+  - pymdownx.superfences
 
 nav:
   - 'index.md'
   - 'preparations.md'
   - 'dev_env.md'
+  - 'led_blinking.md'
+  - 'cli_usage.md'
+  - 'vscode_integration_guide.md'
