@@ -5,9 +5,11 @@
 VSCode has a neat feature to run arbitrary tasks within the editor. Assigning the docker commands to
 tasks makes it easy to run them without opening the terminal.  
 In this section we assign tasks for the CLI commands we used in the 
-[CLI usage chapter](cli_usage.md). Open the VSCode command palette and search for *Open User Tasks*.
+[CLI usage chapter](cli_usage.md). 
 
-Add the following task descriptions and replace the {Binary file} with your .bin file.
+If it doesn't exist yet, create a new directory called .vscode in the project root and add a file 
+called tasks.json. Add the following task descriptions to this file and replace the {Binary file} 
+with your .bin file.
 
 ``` json title="tasks.json"
 {
@@ -98,14 +100,14 @@ We need to tell VSCode to install the Cortex-Debug extension for the dev contain
 
 ``` json title="devcontainer.json"
 {
-	"dockerComposeFile": "docker-compose.yml",
-	"service": "gdb",
-	"workspaceFolder": "/work",
-	"customizations": {
-		"vscode": {
-			"extensions": ["marus25.cortex-debug"]
-		}
-	}
+    "dockerComposeFile": "docker-compose.yml",
+    "service": "gdb",
+    "workspaceFolder": "/work",
+    "customizations": {
+        "vscode": {
+            "extensions": ["marus25.cortex-debug", "mcu-debug.debug-tracker-vscode"]
+        }
+    }
 }
 ```
 
@@ -119,7 +121,7 @@ need to create a docker-compose file that defines what containers should run.
 ``` yaml title="docker-compose.yml"
 services:
   gdb-client:
-    image: make_gnu_arm
+    image: axemsolutions/make_gnu_arm
     container_name: make_gnu_arm_container
     networks:
       - gdb-net
@@ -128,7 +130,7 @@ services:
     command: /bin/sh -c "while sleep 100; do :; done"
 
   gdb-server:
-    image: stlink_org
+    image: axemsolutions/stlink_org
     container_name: stlink_org_container
     networks:
       - gdb-net
@@ -147,5 +149,5 @@ networks:
 First, we need to enter the remote dev container mode, by executing the VSCode command: 
 **Dev Containers: Reopen in Container**. The VSCode should start all the necessary resources. If the
 setup finished, we just need to press :material-keyboard-f5:, and the debug session starts.  
-When we finish the debug session we can go back to normal mode, be issuing: 
+After finishing the debug session we can go back to normal mode by issuing: 
 **Dev Containers: Reopen Folder Locally**.
