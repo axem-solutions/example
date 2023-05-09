@@ -42,7 +42,7 @@ To deploy to the target, follow these steps:
 
 Here's what each part of the command does:
 
-- `--prvileged`: Give access to the USB devices.  
+- `--privileged`: Give access to the USB devices.  
 :warning: Only use this flag for testing purposes. The safe way is to only give access for the 
 actual ST-Link USB device.
 - `--rm`: Removes the container after writing to the flash.
@@ -72,7 +72,7 @@ In the next step, you need to start the GDB server with access to this gdb-net. 
 Here's what each part of the command does:
 
 - `-it`: Starts an interactive shell, which is useful to see what's going on in the container.
-- `--prvileged`: Give access to the USB devices.  
+- `--privileged`: Give access to the USB devices.  
 :warning: Only use this flag for testing purposes. The safe way is to only give access for the 
 actual ST-Link USB device.
 - `--rm`: We can remove the container after the debug session.
@@ -100,7 +100,7 @@ Start the server provided by stlink-org.
 
 For the GDB client, follow these steps:
 
-1. Start the GDB client with the elf file as parameter.
+1. Start the GDB client with the elf file as the parameter.
 
     ```
     arm-none-eabi-gdb build/tutorial.elf

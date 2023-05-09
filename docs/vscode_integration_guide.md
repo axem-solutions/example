@@ -53,7 +53,7 @@ Before we proceed, note that we need two additional extensions:
 
 1. [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug): This 
 provides a front-end for debugging software running on ARM Cortex processors. This plugin feeds the 
-commands for the GDB client, over the GDB machine interface. Meaning, the pluging must run alongside
+commands for the GDB client, over the GDB machine interface. Meaning, the plugin must run alongside
 with the GDB client in the same container.
 2. [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers): 
 Makes it possible to run the VSCode inside a container.
@@ -84,7 +84,7 @@ Let's create a launch.json file in the .vscode directory and add the following c
 - "cwd": Current working directory.
 - "executable": Change the {elf file} to the actual .elf file in your build directory.
 - "name": Name of the configurations.
-- "request": Launch the debug session. (Not connecting to an exisiting one.)
+- "request": Launch the debug session. (Not connecting to an existing one.)
 - "type": Debug type provided by the Cortex-Debug extension.
 - "servertype": External, meaning the GDB server is not managed by the extension. In our case it 
 runs in another container.

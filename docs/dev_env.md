@@ -69,7 +69,7 @@ Create a shell script that will run inside the container.
 echo "test environment"
 ```
 
-Create a Dockerfile that describe how to build this dummy image.
+Create a Dockerfile that describes how to build this dummy image.
 
 ``` title="Dockerfile"
 FROM debian:latest

@@ -27,7 +27,7 @@ Nevertheless, all the not VSCode-specific steps can be followed with any other e
 
 ## The base of the example project
 
-We would like to write a very simple application for our target bourd. When creating software 
+We would like to write a very simple application for our target board. When creating software 
 applications for embedded systems - even for very simple ones like LED blinking - some additional 
 functionality is needed:
 
@@ -45,7 +45,7 @@ to generate it, the STM32CubeMX.
 
 ### Run the STM32CubeMX
 
-You need to install the STM32CubeMX for you host PC.
+You need to install the STM32CubeMX for your host PC.
 [:material-link: Installation](https://www.st.com/en/development-tools/stm32cubemx.html)
 
 !!! note
