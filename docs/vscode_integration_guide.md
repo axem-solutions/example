@@ -2,14 +2,13 @@
 
 ## Creating tasks
 
-VSCode has a neat feature to run arbitrary tasks within the editor. Assigning the docker commands to
-tasks makes it easy to run them without opening the terminal.  
-In this section we assign tasks for the CLI commands we used in the 
-[CLI usage chapter](cli_usage.md). 
+VSCode has a neat feature to run arbitrary tasks within the editor. This makes it easy to execute 
+common commands without having to open a separate terminal window. In this section, we will assign 
+tasks for the CLI commands that were introduced in the [CLI usage chapter](cli_usage.md). 
 
-If it doesn't exist yet, create a new directory called .vscode in the project root and add a file 
-called tasks.json. Add the following task descriptions to this file and replace the {Binary file} 
-with your .bin file.
+To get started, create a new directory called .vscode in the root of your project if it doesn't 
+already exist. Then add a file called tasks.json to this directory. Copy and paste the following 
+task descriptions into the tasks.json file:
 
 ``` json title="tasks.json"
 {
@@ -34,12 +33,13 @@ with your .bin file.
 }
 ```
 
-Now you can run these commands as tasks. To make them even more easier to start, it is possible to 
-assign specific keybindings.  
-In the command palette search for *Configure Default Build Task*. From the list select the 
-**Build Project** (the label of the task in the tasks.json). You will see that in the tasks.json the
-VSCode automatically extended the Build Project task. Now if you press `ctrl+shift+b` the build task
-starts.
+Note that you'll need to replace {Binary file} with the actual name of your binary file.
+
+With these tasks defined, you can now execute them from within VSCode.  
+To make the build execution even more convenient, go to the Command Palette and search for 
+"Configure Default Build Task". Select the "Build Project" task from the list. This will configure 
+VSCode to automatically run the "Build Project" task when you press the key combination 
+`Ctrl+Shift+B`.
 
 ## Debugging
 
@@ -49,13 +49,14 @@ concept.
 
 ### Additional extensions
 
-We are going to need two additional extensions.
+Before we proceed, note that we need two additional extensions: 
 
 1. [Cortex-Debug](https://marketplace.visualstudio.com/items?itemName=marus25.cortex-debug): This 
 provides a front-end for debugging software running on ARM Cortex processors. This plugin feeds the 
 commands for the GDB client, over the GDB machine interface. Meaning, the pluging must run alongside
 with the GDB client in the same container.
-2. [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers): Makes it possible to run the VSCode inside a container.
+2. [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers): 
+Makes it possible to run the VSCode inside a container.
 
 ### Debug configuration
 
@@ -115,7 +116,7 @@ We need to tell VSCode to install the Cortex-Debug extension for the dev contain
 
 The VSCode back-end must run in the GDB client's container, so we can start the debug session with 
 simply pressing :material-keyboard-f5:. For this we would like to make the axemsolutions/stlink_org 
-image to start its own container the same time VSCode enters dev container mode. To achieve this we
+image to start its own container the same time VSCode enters dev container mode. To achieve this, we
 need to create a docker-compose file that defines what containers should run.
 
 ``` yaml title="docker-compose.yml"
@@ -146,8 +147,8 @@ networks:
 
 ### Start the debug session
 
-First, we need to enter the remote dev container mode, by executing the VSCode command: 
+First, we need to enter the remote dev container mode by executing the VSCode command: 
 **Dev Containers: Reopen in Container**. The VSCode should start all the necessary resources. If the
 setup finished, we just need to press :material-keyboard-f5:, and the debug session starts.  
-After finishing the debug session we can go back to normal mode by issuing: 
+After finishing the debug session, we can go back to normal mode by issuing: 
 **Dev Containers: Reopen Folder Locally**.

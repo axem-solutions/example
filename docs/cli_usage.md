@@ -1,42 +1,52 @@
 # CLI usage
 
-From the command line the tools can be used the same way in a container as on the native host. Here
-I would like to give examples for the most common tasks a Development Environment needs to handle.
+You can use the tools from the command line in the same way whether you are on a native host or in a 
+container. Below are some examples of the most common tasks that a Development Environment needs to 
+handle.
 
 ## Building the software
 
-Run the following command from the root directory of your project:
+To build the software, run the following command from the root directory of your project:
 
     docker run --rm -v "$(pwd)":/work axemsolutions/make_gnu_arm make
 
-Now let's break down this command: 
+Here's a breakdown of the command:
 
-- `--rm`: We can remove the container right after the build finished.
-- `-v "$(pwd)":/work`: Mount the root directory of you project to `/work` in the container. 
+- `--rm`: Removes the container right after the build is finished.
+- `-v "$(pwd)":/work`: Mounts the root directory of your project to `/work` in the container.
 - `axemsolutions/make_gnu_arm`: The tool image to run in the container.
 - `make`: The command to execute in the container.
 
 ## Running the tests
 
+To run the tests, use this command:
+
     docker run --rm -v "$(pwd)":/work axemsolutions/cpputest /bin/sh -c "cd app/test; make"
 
-- `--rm`: We can remove the container right after the test cases ran.
-- `-v "$(pwd)":/work`: Mount the root directory of you project to `/work` in the container. 
+Here's what each part of the command does:
+
+- `--rm`: Removes the container right after the test cases have run.
+- `-v "$(pwd)":/work`: Mounts the root directory of your project to `/work` in the container.
 - `axemsolutions/cpputest`: The tool image to run in the container.
 - `/bin/sh -c "cd app/test; make"`: The command to execute in the container.
 
-## Deploy to target
+## Deploying to target
 
-Connect the Nucleo board to your PC.
+To deploy to the target, follow these steps:
+
+1. Connect the Nucleo board to your PC.
+2. Run the following command:
 
     docker run --privileged --rm -v "$(pwd)":/work axemsolutions/stlink_org /bin/sh -c "cd build; 
     st-flash write tutorial.bin 0x8000000"
 
+Here's what each part of the command does:
+
 - `--prvileged`: Give access to the USB devices.  
 :warning: Only use this flag for testing purposes. The safe way is to only give access for the 
 actual ST-Link USB device.
-- `--rm`: We can remove the container right after writing to the flash.
-- `-v "$(pwd)":/work`: Mount the root directory of you project to `/work` in the container. 
+- `--rm`: Removes the container after writing to the flash.
+- `-v "$(pwd)":/work`: Mounts the root directory of you project to `/work` in the container. 
 - `axemsolutions/stlink_org`: The tool image to run in the container.
 - `/bin/sh -c "cd build; st-flash write tutorial.bin 0x8000000"`: The command to execute in the 
 container.
@@ -44,19 +54,24 @@ container.
 ## Debugging
 
 GDB is based on a client-server architecture. The client is in the axemsolutions/make_gnu_arm image,
-the serve is in the axemsolutions/stlink_org image. Meaning, we need both containers running. 
+and the server is in the axemsolutions/stlink_org image. Therefore, you need both containers 
+running.
 
-Since we have two separate containers, we need a way to let them communicate with each other. 
-Normally, the GDB client and server commuicate over TCP/IP, so we need to create a network for them.
+Since you have two separate containers, you need a way to let them communicate with each other. 
+Normally, the GDB client and server communicate over TCP/IP, so you need to create a network for 
+them.
+
+To create a bridged network called `gdb-net`, run the following command:
 
     docker network create gdb-net
 
-This command will create a bridged network called `gdb-net`. In the next step, we need to start the 
-GDB server with access to this gdb-net.
+In the next step, you need to start the GDB server with access to this gdb-net. Use this command:
 
     docker run -it --privileged --rm --network=gdb-net axemsolutions/stlink_org
 
-- `-it`: With an interactive shell. Useful to see what's going on in the container.
+Here's what each part of the command does:
+
+- `-it`: Starts an interactive shell, which is useful to see what's going on in the container.
 - `--prvileged`: Give access to the USB devices.  
 :warning: Only use this flag for testing purposes. The safe way is to only give access for the 
 actual ST-Link USB device.

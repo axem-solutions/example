@@ -1,43 +1,43 @@
 # Welcome
 
-This is a tutorial to demonstrate axem's vision of a modern Development Environment, with the help 
-of the dem tool. Going through these steps you are going to find solutions for some of the greatest
-challenges of embedded development.
+Welcome to axem's tutorial on a modern Development Environment using the dem tool. In this tutorial, 
+you'll learn how to set up and manage a containerized Development Environment on Linux, create a new 
+Development Environment, and use it with VS Code. 
 
 !!! note
 
-    The tutorial is for Linux only. 
+    This tutorial is for Linux only. 
 
-## The content
+## Tutorial Content
 
 The tutorial covers the following topics:
 
-1. How to set up and manage a Development Environment for your PC to use containerized tools?
-2. How to create a new Development Environment?
-3. How to use the containerized Development Environment with VS code?
+1. How to set up and manage a containerized Development Environment on your PC
+2. How to create a new Development Environment
+3. How to use the containerized Development Environment with VS Code
 
 At the end of the tutorial you should be able to set up a working Development Environment and dive 
 into writing the embedded software.
 
 !!! tip
 
-    If you get stuck at any step, you can check the 
+    If you get stuck at any step, you can check out the 
     [example repo](https://github.com/axem-solutions/example), which is a complete reference 
     project.
 
-## The example project
+## Example Project
 
-In this tutorial we create the typical embedded *hello world* project - blinking LEDs on the board. 
+In this tutorial, we will create a basic embedded project – blinking LEDs on an STM32F103 on a 
+NUCLEO-F103RB board. You can use the processor of your choice, but then you'll need to handle the 
+hardware-specific parts by yourself.
 
-- The example target is an STM32F103 on a NUCLEO-F103RB board. (Of course you can follow the
-tutorial with the processor of your choice, but then you need to handle the hardware specific parts
-by yourself.)
-- The project skeleton gets generated with the STM32CubeMX tool, so the HAL provided by ST can be 
-used.
-- The following tools are used for the example project's Development Environment:
-    - Build system: [make](https://www.gnu.org/software/make/#documentation)
-    - Toolchain: [gnu-arm-none-eabi](https://gcc.gnu.org/onlinedocs/)
-    - Debugger and deployer: [stlink-org](https://github.com/stlink-org/stlink)
-    - Test environment: [CppUTest](http://cpputest.github.io/)
-- We us the VSCode as editor for demonstration. If you would like to use the above tool images with 
-an other editor, feel free to send us a message.
+The project skeleton will be generated with the STM32CubeMX tool, which will allow us to use the HAL 
+provided by ST. The following tools will be used for the example project's Development Environment:
+
+- Build system: [make](https://www.gnu.org/software/make/#documentation)
+- Toolchain: [gnu-arm-none-eabi](https://gcc.gnu.org/onlinedocs/)
+- Debugger and deployer: [stlink-org](https://github.com/stlink-org/stlink)
+- Test environment: [CppUTest](http://cpputest.github.io/)
+
+For demonstration purposes, we'll be using VS Code as the editor. If you'd like to use these tool 
+images with another editor, feel free to send us a message.

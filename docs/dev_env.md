@@ -38,7 +38,7 @@ present:
 - locally: `dem list --local --tool`
 - in registry: `dem list --all --tool`
 
-As an example let's create an other, alternative Environment for out target with the following
+As an example let's create an other, alternative Environment for our target with the following
 elements:
 
 - Build system: [cmake](https://cmake.org/documentation/)

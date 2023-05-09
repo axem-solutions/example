@@ -1,22 +1,23 @@
-# LED blinking - example application
+# LED blinking - Example Application
 
 Let's create our very simple embedded application.
 
 !!! note 
 
-    Instead of writing it yourself, you can check out the 
-    [example repo](https://github.com/axem-solutions/example) from GitHub, which is a working 
+    If you don't want to write the application yourself, you can check out the 
+    [example repo](https://github.com/axem-solutions/example) on GitHub, which provides a working 
     solution.
 
-## The specification
+## The Specification
 
 We have 3 requirements:
 
-1. After power up, the LD2 user LED shall blink with a 1Hz frequency, 50% duty cycle.
-2. If the LED is blinking and the user presses the B1 user button, the LED shall stop blinking.
-3. If the LED is not blinking and the user presses the B1 user button, the LED shall start blinking.
+1. After power up, the LD2 user LED should blink with a 1Hz frequency and a 50% duty cycle.
+2. If the LED is blinking and the user presses the B1 user button, the LED should stop blinking.
+3. If the LED is not blinking and the user presses the B1 user button, the LED should start blinking
+again.
 
-## The implementation
+## The Implementation
 
 Create the directory structure for the application.
 
