@@ -104,4 +104,4 @@ For the GDB client, follow these steps:
     load
     ```
 
-5. Now you should be able debug.
+5. Now you should be able to debug.

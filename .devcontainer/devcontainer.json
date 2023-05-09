@@ -1,6 +1,6 @@
 {
 	"dockerComposeFile": "docker-compose.yml",
-	"service": "gdb",
+	"service": "gdb-client",
 	"workspaceFolder": "/work",
 	"customizations": {
 		"vscode": {

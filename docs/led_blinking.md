@@ -155,7 +155,7 @@ makefile append the `app/src/demo.c` to the C_SOURCES.
 
 !!! warning
 
-    Don't forget to add a trailing backslash (\) to the above line!
+    Don't forget to add a trailing backslash (\\) to the above line!
 
 ## The test cases
 

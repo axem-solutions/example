@@ -1,23 +1,23 @@
 services:
-  gdb:
+  gdb-client:
     image: make_gnu_arm
     container_name: make_gnu_arm_container
     networks:
-      - debug-net
+      - gdb-net
     volumes:
       - "..:/work"
-    command: /bin/sh -c "hostname -i; while sleep 100; do :; done"
+    command: /bin/sh -c "while sleep 100; do :; done"
 
-  st-util:
+  gdb-server:
     image: stlink_org
     container_name: stlink_org_container
     networks:
-      - debug-net
+      - gdb-net
     volumes:
       - "..:/work"
     privileged: true
-    command: /bin/sh -c "hostname -i; st-util"
+    command: /bin/sh -c "st-util"
 
 networks:
-  debug-net:
+  gdb-net:
     driver: bridge
