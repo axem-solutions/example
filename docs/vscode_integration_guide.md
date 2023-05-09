@@ -1,4 +1,4 @@
-# VSCode integration
+# VSCode Integration
 
 ## Creating tasks
 

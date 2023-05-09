@@ -1,4 +1,4 @@
-# CLI usage
+# CLI Usage
 
 You can use the tools from the command line in the same way whether you are on a native host or in a 
 container. Below are some examples of the most common tasks that a Development Environment needs to 
