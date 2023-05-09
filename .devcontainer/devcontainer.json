@@ -4,7 +4,7 @@
 	"workspaceFolder": "/work",
 	"customizations": {
 		"vscode": {
-			"extensions": ["marus25.cortex-debug", "mcu-debug.debug-tracker-vscode"]
+			"extensions": ["mcu-debug.debug-tracker-vscode", "marus25.cortex-debug"]
 		}
 	}
 }

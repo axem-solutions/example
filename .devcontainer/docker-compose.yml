@@ -1,6 +1,6 @@
 services:
-  gdb-client:
-    image: make_gnu_arm
+  gdb:
+    image: axemsolutions/make_gnu_arm
     container_name: make_gnu_arm_container
     networks:
       - gdb-net
@@ -8,8 +8,8 @@ services:
       - "..:/work"
     command: /bin/sh -c "while sleep 100; do :; done"
 
-  gdb-server:
-    image: stlink_org
+  st-util:
+    image: axemsolutions/stlink_org
     container_name: stlink_org_container
     networks:
       - gdb-net
