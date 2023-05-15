@@ -1,0 +1,6 @@
+[
+    {
+        "name": "arm-none-eabi GNU toolchain",
+        "toolchainFile": "${workspaceRoot}/cmake/toolchain-arm-none-eabi.cmake"
+    }
+]
