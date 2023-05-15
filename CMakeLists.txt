@@ -6,6 +6,8 @@ set(CMAKE_VERBOSE_MAKEFILE ON)
 # Path to toolchain file. This one has to be before 'project()' below
 set(CMAKE_TOOLCHAIN_FILE ${CMAKE_SOURCE_DIR}/cmake/toolchain-arm-none-eabi.cmake)
 
+set(CMAKE_MAKE_PROGRAM make)
+
 # Setup project, output and linker file
 project(example VERSION 0.1)
 set(EXECUTABLE ${PROJECT_NAME}.elf)
