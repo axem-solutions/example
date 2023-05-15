@@ -39,8 +39,8 @@ to generate it, the STM32CubeMX.
 
 !!! tip
 
-    You can jump to [CLI usage](cli_usage.md) or [VSCode integration](vscode_integration_guide.md) 
-    if you use the example NUCLEO-F103RB board, and you don't want to write the example application. 
+    You can jump to [Development Environment intallation](dev_env.md) if you use the example 
+    NUCLEO-F103RB board, and you don't want to write the example application by yourself. 
     Clone the example repo: `git clone https://github.com/axem-solutions/example`
 
 ### Run the STM32CubeMX

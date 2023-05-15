@@ -1,4 +1,4 @@
-# The Development Environment
+# Development Environment installation
 
 ## Installation
 
@@ -27,8 +27,7 @@ Now you are ready to make embedded software!
 !!! note
 
     At this point, you can use the tools as containerized CLI applications. See the 
-    [next page](vscode_integration_guide.md) about how to integrate the Development Environment into 
-    the VSCode editor.
+    [next page](led_blinking.md) about the implementation of our example application.
 
 ## A new Development Environment
 
@@ -43,12 +42,14 @@ elements:
 
 - Build system: [cmake](https://cmake.org/documentation/)
 - Toolchain: [gnu-arm-none-eabi](https://gcc.gnu.org/onlinedocs/)
-- Debugger and deployer: [J-Link](https://www.segger.com/products/debug-probes/j-link/#software)
+- Debugger and deployer: [stlink-org](https://github.com/stlink-org/stlink)
 - Test environment: dummy test
 
-### Obtaining the cmake, gnu-arm-none-eabi and J-Link tool images
+### Obtaining the cmake, gnu-arm-none-eabi and stlink-org tool images
 
-These tools are available in the axem registry.
+These tools are available in the axem registry. The cmake and GNU arm toolchain are present in the 
+same container image alongside with make: `cmake_make_gnu-arm`.
+The stlink-org has its own image: `stlink_org`.
 
 ### Obtaining the dummy test tool image
 
@@ -91,3 +92,20 @@ Try running the script inside a container to convince ourselves everything went 
 To start the interactive Development Environment creation you need to use the `dem create` command. 
 
     dem create "Tutorial Alternative"
+
+You will see the available tool types. Select all of them with :material-keyboard-space:.
+
+![Tool type selection](images/tool_type_select.png)
+
+Press :material-keyboard-return: when you finished. 
+
+Next you will go through all the selected tool types one-by-one and you can select the required tool
+image for all of them.
+
+- Build system: `axemsolutions/cmake_make_gnu-arm:latest`
+- Toolchain: `axemsolutions/cmake_make_gnu-arm:latest`
+- Debugger: `axemsolutions/stlink_org:latest`
+- Deployer:`axemsolutions/stlink_org:latest`
+- Test environment:`dummy_test:latest`
+
+That's it! Now you have a new Development Environment.
