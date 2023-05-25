@@ -11,13 +11,15 @@ You need at least python 3.10 to be able to run the dem.
 
 [:material-link: Installation](https://www.python.org/downloads/)
 
-## dem
+## DEM
 
-We use the open source `dem` command line tool to manage the containerized Development Environments.
+We use the open source `dem` command-line tool to manage the containerized Development Environments.
 
-[:material-link: Installation and Documentation]()
+[:material-link: Installation and Documentation](https://axemsolutions.io/dem_doc/)
 
 ## VSCode
+
+[:material-link: Installation](https://code.visualstudio.com/docs/setup/linux)
 
 In this tutorial, the VSCode editor is used to showcase the benefits of containerized tools when 
 developing embedded software. We also provide a separate chapter about how to integrate and utilize 

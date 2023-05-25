@@ -54,7 +54,7 @@ The stlink-org has its own image: `stlink_org`.
 ### Obtaining the dummy test tool image
 
 You can use your own tools that you containerized by yourself in Development Environments created 
-with dem. To see how to do it, we containerize a dummy test tool. (This won't be an actual test 
+with DEM. To see how to do it, we containerize a dummy test tool. (This won't be an actual test 
 environment, just a script that prints "test environment" :face_with_hand_over_mouth:.)
 
 Let's create a directory for building the dummy test tool!
