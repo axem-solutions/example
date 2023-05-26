@@ -47,7 +47,7 @@ I would like to show a method for setting up debugging in VSCode. We will use th
 did in the [CLI Debugging chapter](cli_usage.md#debugging), so please read that to understand the 
 concept.
 
-### Additional extensions
+### **Additional extensions**
 
 Before we proceed, note that we need two additional extensions: 
 
@@ -58,7 +58,7 @@ with the GDB client in the same container.
 2. [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers): 
 Makes it possible to run the VSCode inside a container.
 
-### Debug configuration
+### **Debug configuration**
 
 Let's create a launch.json file in the .vscode directory and add the following configuration:
 
@@ -112,7 +112,7 @@ We need to tell VSCode to install the Cortex-Debug extension for the dev contain
 }
 ```
 
-### Debug in dev container
+### **Debug in dev container**
 
 The VSCode back-end must run in the GDB client's container, so we can start the debug session with 
 simply pressing :material-keyboard-f5:. For this we would like to make the axemsolutions/stlink_org 
@@ -145,7 +145,7 @@ networks:
     driver: bridge
 ```
 
-### Start the debug session
+### **Start the debug session**
 
 First, we need to enter the remote dev container mode by executing the VSCode command: 
 **Dev Containers: Reopen in Container**. The VSCode should start all the necessary resources. If the

@@ -2,7 +2,8 @@
 
 Welcome to axem's tutorial on a modern 
 [Development Environment](https://axemsolutions.io/dem_doc/development_environments/) using the DEM 
-tool. Before beginning this tutorial, we recommend that you first read the accompanying 
+tool!  
+Before beginning this tutorial, we recommend that you first read the accompanying 
 [documentation](https://axemsolutions.io/dem_doc/) for a comprehensive understanding of the DEM tool 
 and the Development Environments. This will provide you with essential background information and 
 ensure a smoother learning experience throughout the tutorial.  
@@ -13,13 +14,17 @@ use them with [VS Code](https://code.visualstudio.com/).
 
     Currently the DEM only works on Linux, so this tutorial is for Linux only. 
 
+    Tested on:
+    - Ubuntu 22.04
+    - Debian 11
+
 ## Tutorial Content
 
 The tutorial covers the following topics:
 
 1. How to install and manage predefined containerized Development Environments provided by axem
-2. How to create a new Development Environment
-3. How to use the containerized Development Environment with VS Code
+2. How to use a containerized Development Environment with VS Code
+3. How to create a new Development Environment from the containerized tools of your choice
 
 By completing this tutorial, you should be able to set up a working Development Environment, which
 you can use to create embedded applications.
@@ -27,7 +32,7 @@ you can use to create embedded applications.
 !!! tip
 
     If you get stuck at any step, you can check out the 
-    [example repo](https://github.com/axem-solutions/example), which is a complete reference 
+    [example repo](https://github.com/axem-solutions/example), which contains a complete reference 
     project.
 
 ## Example Project
@@ -46,4 +51,4 @@ provided by ST. The example project's Development Environment will consist of th
 - Test environment: [CppUTest](http://cpputest.github.io/)
 
 For demonstration purposes, we'll be using VS Code as the editor. If you'd like to use these tool 
-images with another editor, feel free to send us a message.
+images with another editor and need some help, feel free to send us a message.

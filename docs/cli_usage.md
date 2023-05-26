@@ -32,10 +32,7 @@ Here's what each part of the command does:
 
 ## Deploying to target
 
-To deploy to the target, follow these steps:
-
-1. Connect the Nucleo board to your PC.
-2. Run the following command:
+First connect the Nucleo board to your PC. If the board is connected, run the following command:
 
     docker run --privileged --rm -v "$(pwd)":/work axemsolutions/stlink_org /bin/sh -c "cd build; 
     st-flash write tutorial.bin 0x8000000"

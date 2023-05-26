@@ -85,3 +85,4 @@ nav:
   - 'led_blinking.md'
   - 'cli_usage.md'
   - 'vscode_integration_guide.md'
+  - 'create_new_dev_env.md'
