@@ -62,7 +62,13 @@ To create a bridged network called `gdb-net`, run the following command:
 
     docker network create gdb-net
 
-In the next step, you need to start the GDB server with access to this gdb-net. Use this command:
+In the next step, you need to start the GDB server with access to this gdb-net.
+
+!!! warning
+
+    The Nucleo board must be connected before starting the axemsolutions/stlink_org container.
+
+Run this command:
 
     docker run -it --privileged --rm --network=gdb-net axemsolutions/stlink_org
 
@@ -91,7 +97,8 @@ Now get back to the GDB server's terminal and get its IP address.
 
     hostname -I
     
-Start the server provided by stlink-org. 
+Start the server provided by stlink-org. If the command is successful, it will print `Listening at 
+*:{port}` - note this port number.
 
     st-util
 
@@ -104,10 +111,10 @@ For the GDB client, follow these steps:
     ```
 
 2. You should see GDB's own shell.
-3. Connect to the server by providing its IP address for the GDB client.
+3. Connect to the server by providing its IP address and the noted port number for the GDB client.
 
     ```
-    target remote {server ip}
+    target remote {server ip:port}
     ```
 
 4. Load the binary to the NUCLEO.
