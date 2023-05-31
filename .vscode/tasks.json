@@ -1,22 +1,25 @@
 {
-    // See https://go.microsoft.com/fwlink/?LinkId=733558
-    // for the documentation about the tasks.json format
     "version": "2.0.0",
     "tasks": [
         {
             "label": "Build Project",
             "type": "shell",
-            "command": "axem/BUILD/build.sh"
+            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/make_gnu_arm make",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "Deploy to target",
             "type": "shell",
-            "command": "axem/DEPLOY/deploy.sh"
+            "command": "docker run --privileged --rm -v \"$(pwd)\":/work axemsolutions/stlink_org /bin/sh -c \"cd build; st-flash write boardtest.bin 0x8000000\""
         },
         {
             "label": "Run unit tests",
             "type": "shell",
-            "command": "axem/TEST/unit_test.sh"
+            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/cpputest /bin/sh -c \"cd app/test; make\""
         }
     ]
 }
