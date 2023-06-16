@@ -5,12 +5,9 @@ echo "Running unit tests ..."
 docker_image_reg_name=$(jq -e '."testframework"' axem/descriptor.json | tr -d \")
 
 if [[ "x$(docker image ls --filter reference=${docker_image_reg_name} -q)" == "x" ]]; then  
-  echo "Not find it create testframework docker image"  
-  echo "Testframework: ${docker_image_reg_name}" 
-  pushd axem/TEST
-	docker build -t ${docker_image_reg_name} .	
-  popd
-  
+  echo "Not find it! \n Download: ${docker_image_reg_name}" 
+	docker pull ${docker_image_reg_name} .	
+    
 else
   echo "${docker_image_reg_name}" 
   echo "Docker image exist"
