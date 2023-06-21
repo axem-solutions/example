@@ -1,4 +1,4 @@
-# Learn more: how to create a new Development Environment
+# Learn more: How to create a new Development Environment
 
 You can create new Development Environments from containerized tools. The tool images can be 
 present:
@@ -64,13 +64,13 @@ Now run the script inside a container to ensure everything works as expected.
 
 To start the interactive Development Environment creation you need to use the `dem create` command. 
 
-    dem create "Tutorial Alternative"
+    dem create alt_env
 
 You will see the available tool types. Select all of them with :material-keyboard-space:.
 
 ![Tool type selection](images/tool_type_select.png)
 
-Press :material-keyboard-return: when you finished. 
+Select *next* when you finished. 
 
 Next you will go through all the selected tool types one-by-one and you can select the required tool
 image for all of them, by pressing :material-keyboard-return:.
