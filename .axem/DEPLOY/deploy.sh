@@ -2,12 +2,12 @@
 
 echo "Deploy ..."
 
-docker_image_reg_name=$(jq -e '."deploy"' axem/descriptor.json | tr -d \")
+docker_image_reg_name=$(jq -e '."deploy"' .axem/descriptor.json | tr -d \")
 
 if [[ "x$(docker image ls --filter reference=${docker_image_reg_name} -q)" == "x" ]]; then  
   echo "Not find it create deploy docker image"  
   echo "Deploy: ${docker_image_reg_name}" 
-  pushd axem/DEPLOY
+  pushd .axem/DEPLOY
 	docker build -t ${docker_image_reg_name} .	
   popd
   
