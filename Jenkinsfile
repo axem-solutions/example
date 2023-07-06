@@ -15,13 +15,12 @@ node {
     }
     stage('Build') {
         withEnv(["PROJECT_DIR=${workspaceRealDir}"]){
-            sh('ls -la')
-            sh('./.axem/BUILD/build.sh')
+            sh('docker run --rm -v "${PROJECT_DIR}":/work axemsolutions/make_gnu_arm /bin/sh -c "make"')
         }
     }
     stage('Test') {
-        withEnv(["PROJECT_DIR=${workspaceRealDir}"]){        
-            sh('./.axem/TEST/unit_test.sh')
+        withEnv(["PROJECT_DIR=${workspaceRealDir}"]){
+            sh('docker run --rm -v "${PROJECT_DIR}":/work axemsolutions/cpputest /bin/sh -c "cd app/test; make"')
         }
     }
 }
