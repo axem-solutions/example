@@ -6,7 +6,7 @@ present:
 - locally: `dem list --local --tool`
 - in registry: `dem list --all --tool`
 
-As an example let's create an other, alternative Environment for our target with the following
+As an example let's create another, alternative Environment for our target with the following
 elements:
 
 - Build system: [cmake](https://cmake.org/documentation/)
@@ -39,7 +39,7 @@ Create a shell script that will run inside the container.
 echo "test environment"
 ```
 
-Set the dummy_test.sh file to be executable.
+Set the dummy_test.sh, file to be executable.
 
     chmod +x dummy_test.sh
 
@@ -72,7 +72,7 @@ You will see the available tool types. Select all of them with :material-keyboar
 
 Select *next* when you finished. 
 
-Next you will go through all the selected tool types one-by-one and you can select the required tool
+Next, you will go through all the selected tool types one-by-one and you can select the required tool
 image for all of them, by pressing :material-keyboard-return:.
 
 - build system: `axemsolutions/cmake_make_gnu-arm:latest`
@@ -82,3 +82,25 @@ image for all of them, by pressing :material-keyboard-return:.
 - test framework:`dummy_test:latest`
 
 That's it! Now you have a new Development Environment.
+
+## Share your new Development Environment
+
+A very important feature of DEM is to provide a reliable way to share Development Environments. To 
+make every member of an organization use the same toolset, the best way is to provide the 
+Development Environment from a catalog.  
+If you would like to share your Development Environment with someone directly, DEM has your back! 
+A Development Environment descriptor can be exported to a file in JSON format, which then can be loaded to another host. 
+
+!!! note
+
+    The exported file only contains the Development Environments descriptor in JSON format. The 
+    other host needs access to all required registries for successful installation.
+
+If you'd like to share the newly created alt_env, first export it:
+
+    dem export alt_env alt_env.json
+
+This will create the alt_env.json file in your current directory.  
+On the other host, the Development Environment descriptor can be loaded:
+
+    dem load alt_env.json
