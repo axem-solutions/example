@@ -1,5 +1,3 @@
 {
-	"build":"axemsolutions/make_gnu_arm:latest",
-	"deploy":"axemsolutions/stlink_org:latest",
-	"testframework":"axemsolutions/cpputest:latest"
+	"dev_env": "Tutorial"
 }
