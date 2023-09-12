@@ -16,12 +16,12 @@ node {
     stage('Build') {
         withEnv(["PROJECT_DIR=${workspaceRealDir}"]){
             sh('ls -la')
-            sh('./axem/BUILD/build.sh')
+            sh('./.axem/BUILD/build.sh')
         }
     }
     stage('Test') {
         withEnv(["PROJECT_DIR=${workspaceRealDir}"]){        
-            sh('./axem/TEST/unit_test.sh')
+            sh('./.axem/TEST/unit_test.sh')
         }
     }
 }
