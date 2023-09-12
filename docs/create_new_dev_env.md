@@ -89,19 +89,18 @@ A very important feature of DEM is to provide a reliable way to share Developmen
 make every member of an organization use the same toolset, the best way is to provide the 
 Development Environment from a catalog.  
 If you would like to share your Development Environment with someone directly, DEM has your back! 
-A Development Environment descriptor can be exported to a JSON file, which then can be loaded to 
-another host. 
+A Development Environment descriptor can be exported to a file in JSON format, which then can be loaded to another host. 
 
 !!! note
 
-    The exported JSON file only contains the Development Environments descriptor. The other host 
-    needs access to all required registries for successful installation.
+    The exported file only contains the Development Environments descriptor in JSON format. The 
+    other host needs access to all required registries for successful installation.
 
 If you'd like to share the newly created alt_env, first export it:
 
-    dem export alt_env
+    dem export alt_env alt_env.json
 
-This will create the alt_env.JSON file in your current directory.  
-On the other host, the Development Environment can be loaded:
+This will create the alt_env.json file in your current directory.  
+On the other host, the Development Environment descriptor can be loaded:
 
-    dem load alt_env.JSON
+    dem load alt_env.json
