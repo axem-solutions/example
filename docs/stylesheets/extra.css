@@ -29,8 +29,9 @@ div {
 	font-size: 20px;
 }
 
+/* Change the font size in the header lane. */
 span {
-	font-size: 17px;
+	font-size: 24px;
 }
 
 @font-face {
