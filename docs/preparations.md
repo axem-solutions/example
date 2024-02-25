@@ -15,7 +15,7 @@ required container images.
 
 ## Python
 
-You need at least python 3.10 to be able to run the dem.
+You need at least python 3.10 to be able to run the DEM.
 
 [:material-link: Installation](https://www.python.org/downloads/)
 
@@ -49,9 +49,10 @@ to generate it, the STM32CubeMX.
 
 !!! tip
 
-    You can jump to [Development Environment intallation](dev_env.md) if you use the example 
-    NUCLEO-F103RB board, and you don't want to write the example application by yourself. 
-    Clone the example repo: `git clone https://github.com/axem-solutions/example`
+    You can skip the next part and jump to [Development Environment intallation](dev_env.md) if you 
+    use the example NUCLEO-F103RB board, and you don't want to write the example application by 
+    yourself.  
+    Clone the complete example repo: `git clone https://github.com/axem-solutions/example`
 
 ### **Run the STM32CubeMX**
 

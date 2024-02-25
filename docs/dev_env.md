@@ -1,4 +1,4 @@
-# Development Environment installation
+# Development Environment Installation
 
 ## Installation
 
@@ -11,7 +11,7 @@ catalogs:
 
     You can add or delete catalogs with the `dem add-cat` and `dem del-cat` commands.
 
-After a clean installation, you have the axem organization enabled by default. 
+After a clean installation, you have the axem catalog enabled by default. 
 You can list the available Development Environments in all available catalogs:
 
     dem list --all --env
@@ -21,10 +21,14 @@ information about it by the following command:
 
     dem info Tutorial
 
-One of DEM's biggest advantages is that installing a preconfigured Development Environment is only a 
-single command. Install the **Tutorial** Development Environment:
+Clone the Tutorial Development Environment's decriptor to your local machine:
 
-    dem pull Tutorial
+    dem clone Tutorial
+
+Now, you would be able to edit the descriptor with the `modify` command, but for now, we are going 
+to install the Development Environment as is. Install the **Tutorial** Development Environment:
+
+    dem install Tutorial
 
 The DEM will pull the images we saw after the `dem info Tutorial` command:
 
@@ -34,13 +38,13 @@ The DEM will pull the images we saw after the `dem info Tutorial` command:
 
 !!! note 
 
-    The images get pulled from an available registry. List the available registries with the 
+    The images get pulled from the available registries. List these registries with the 
     `dem list-reg` command. Use the `dem add-reg` and `dem del-reg` commands to add and delete 
     registries.
 
 If you issue the `dem info Tutorial` command again, you will see that the required images are now 
-available locally. Running `dem list --local --env` makes the locally installed Development 
-Environments get listed, so in our case, you should see the Tutorial Development Environment.
+available locally. Running `dem list --local --env` lists the local Development Environments, so in 
+our case, you should see the Tutorial Development Environment.
 
 Now you are ready to make embedded software!
 

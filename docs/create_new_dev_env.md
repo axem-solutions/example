@@ -85,11 +85,17 @@ That's it! Now you have a new Development Environment.
 
 ## Share your new Development Environment
 
-A very important feature of DEM is to provide a reliable way to share Development Environments. To 
-make every member of an organization use the same toolset, the best way is to provide the 
-Development Environment from a catalog.  
+A very important feature of DEM is to provide a reliable way to share Development Environments, to 
+make every member of an organization use the same toolset. 
+The best way is to assign the Development Environment to the development project. This can be done 
+with the `dem assign` command, which will create a configuration file in the project's .axem directory.
+This configuration file then can be added to the version control system. Installing the Development
+Environment on another host is as easy as cloning the project and running the `dem init` and 
+`dem install` commands.
+
 If you would like to share your Development Environment with someone directly, DEM has your back! 
-A Development Environment descriptor can be exported to a file in JSON format, which then can be loaded to another host. 
+A Development Environment descriptor can be exported to a file in JSON format, which then can be 
+loaded to another host. 
 
 !!! note
 
@@ -101,6 +107,11 @@ If you'd like to share the newly created alt_env, first export it:
     dem export alt_env alt_env.json
 
 This will create the alt_env.json file in your current directory.  
+
 On the other host, the Development Environment descriptor can be loaded:
 
     dem load alt_env.json
+
+And finally, the Development Environment can be installed:
+
+    dem install alt_env
