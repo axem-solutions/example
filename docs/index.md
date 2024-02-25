@@ -3,12 +3,12 @@
 Welcome to axem's tutorial on a modern 
 [Development Environment](https://axemsolutions.io/dem_doc/development_environments/) using the DEM 
 tool!  
-Before beginning this tutorial, we recommend that you first read the accompanying 
-[documentation](https://axemsolutions.io/dem_doc/) for a comprehensive understanding of the DEM tool 
-and the Development Environments. This will provide you with essential background information and 
-ensure a smoother learning experience throughout the tutorial.  
-You'll learn how to create, install, and manage containerized Development Environments on Linux, and 
-use them with [VS Code](https://code.visualstudio.com/). 
+Before beginning, we recommend that you first read the DEM 
+[documentation](https://axemsolutions.io/dem_doc/) for a comprehensive understanding.  
+In this tutorial you'll learn how to create, install, and manage containerized Development 
+Environments on Linux, and use them with [VS Code](https://code.visualstudio.com/). 
+
+> DEM v0.3.0 or later is needed to follow this tutorial.
 
 !!! note
 
@@ -36,12 +36,14 @@ you can use to create embedded applications.
     [example repo](https://github.com/axem-solutions/example), which contains a complete reference 
     project.
 
+    Also, feel free to reach out to us on [Discord](https://discord.com/invite/Nv6hSzXruK) if you 
+    have any questions or need help.
+
 ## Example Project
 
 In this tutorial, we will create a basic embedded project – blinking LEDs with an 
 [STM32F103](https://www.st.com/en/microcontrollers-microprocessors/stm32f103.html) on a 
-NUCLEO-F103RB board. You can use the processor of your choice, but then you'll need to handle the 
-hardware-specific parts by yourself.
+NUCLEO-F103RB board.  
 
 The project skeleton will be generated with the STM32CubeMX tool, which will allow us to use the HAL 
 provided by ST. The example project's Development Environment will consist of the following tools:
