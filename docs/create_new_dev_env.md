@@ -46,7 +46,7 @@ Set the dummy_test.sh, file to be executable.
 Create a file called `Dockerfile` (without extension) that describes how to build this dummy image.
 
 ``` title="Dockerfile"
-FROM debian:latest
+FROM debian:12
 
 WORKDIR /work
 ADD dummy_test.sh /work
@@ -66,22 +66,19 @@ To start the interactive Development Environment creation you need to use the `d
 
     dem create alt_env
 
-You will see the available tool types. Select all of them with :material-keyboard-space:.
+You will see the available tool images. Select the following:
 
-![Tool type selection](images/tool_type_select.png)
-
-Select *next* when you finished. 
-
-Next, you will go through all the selected tool types one-by-one and you can select the required tool
-image for all of them, by pressing :material-keyboard-return:.
-
-- build system: `axemsolutions/cmake_make_gnu-arm:latest`
-- toolchain: `axemsolutions/cmake_make_gnu-arm:latest`
-- debugger: `axemsolutions/stlink_org:latest`
-- deployer:`axemsolutions/stlink_org:latest`
+- build system and toolchain: `axemsolutions/cmake_make_gnu-arm:latest`
+- debugger: `axemsolutions/stlink-org:latest`
 - test framework:`dummy_test:latest`
 
-That's it! Now you have a new Development Environment.
+![Tool type selection](images/dev_env_settings_window_alt_env.png)
+
+Select *save* when you finished. Now you have the new Dev Env descriptor in your local catalog.
+
+Finally, install the Development Environment:
+
+    dem install alt_env
 
 ## Share your new Development Environment
 

@@ -8,13 +8,13 @@ handle.
 
 To build the software, run the following command from the root directory of your project:
 
-    docker run --rm -v "$(pwd)":/work axemsolutions/make_gnu_arm make
+    docker run --rm -v "$(pwd)":/work axemsolutions/make_gnu-arm:13.2 make
 
 Here's a breakdown of the command:
 
 - `--rm`: Removes the container right after the build is finished.
 - `-v "$(pwd)":/work`: Mounts the root directory of your project to `/work` in the container.
-- `axemsolutions/make_gnu_arm`: The tool image to run in the container.
+- `axemsolutions/make_gnu-arm:13.2`: The tool image to run in the container.
 - `make`: The command to execute in the container.
 
 ## Running the tests
@@ -34,17 +34,15 @@ Here's what each part of the command does:
 
 First connect the Nucleo board to your PC. If the board is connected, run the following command:
 
-    docker run --privileged --rm -v "$(pwd)":/work axemsolutions/stlink_org /bin/sh -c "cd build; 
+    docker run --privileged --rm -v "$(pwd)":/work axemsolutions/stlink-org:1.8.0 /bin/sh -c "cd build; 
     st-flash write tutorial.bin 0x8000000"
 
 Here's what each part of the command does:
 
 - `--privileged`: Give access to the USB devices.  
-:warning: Only use this flag for testing purposes. The safe way is to only give access for the 
-actual ST-Link USB device.
 - `--rm`: Removes the container after writing to the flash.
 - `-v "$(pwd)":/work`: Mounts the root directory of you project to `/work` in the container. 
-- `axemsolutions/stlink_org`: The tool image to run in the container.
+- `axemsolutions/stlink-org`: The tool image to run in the container.
 - `/bin/sh -c "cd build; st-flash write tutorial.bin 0x8000000"`: The command to execute in the 
 container.
 
@@ -76,11 +74,9 @@ Here's what each part of the command does:
 
 - `-it`: Starts an interactive shell, which is useful to see what's going on in the container.
 - `--privileged`: Give access to the USB devices.  
-:warning: Only use this flag for testing purposes. The safe way is to only give access for the 
-actual ST-Link USB device.
 - `--rm`: We can remove the container after the debug session.
 - `--network=gdb-net`: Connect to the gdb-net network.
-- `axemsolutions/stlink_org`: The tool image to run in the container.
+- `axemsolutions/stlink-org`: The tool image to run in the container.
 
 Open another terminal and run the GDB client.
 
@@ -91,7 +87,7 @@ terminal.
 - `--rm`: We can remove the container after the debug session.
 - `-v "$(pwd)":/work`: Mount the root directory of you project to `/work` in the container. 
 - `--network=gdb-net`: Connect to the gdb-net network.
-- `axemsolutions/make_gnu_arm`: The tool image to run in the container.
+- `axemsolutions/make_gnu-arm`: The tool image to run in the container.
 
 Now get back to the GDB server's terminal and get its IP address.
 

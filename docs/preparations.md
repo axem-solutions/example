@@ -21,7 +21,7 @@ You need at least python 3.10 to be able to run the DEM.
 
 ## DEM
 
-We use our open source command-line tool DEM, to manage the containerized Development Environments.
+DEM will be used to manage the containerized Development Environments.
 
 [:material-link: Installation](https://axemsolutions.io/dem_doc/installation/)
 

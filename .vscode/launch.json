@@ -3,13 +3,13 @@
 	"configurations": [
 			{
 				"cwd": "${workspaceRoot}",
-				"executable": "${workspaceRoot}/build/boardtest.elf",
+				"executable": "${workspaceRoot}/build/tutorial.elf",
 				"name": "Debug Microcontroller",
 				"request": "launch",
 				"type": "cortex-debug",
 				"servertype": "external",
-				"gdbTarget": "stlink_org_container:4242",
-				"armToolchainPath": "/opt/gcc-arm/bin",
+				"gdbTarget": "stlink-org_container:4242",
+				"armToolchainPath": "/opt/gnu/arm-none-eabi-gnu-toolchain-13.2/bin",
 				"device": "STM32F103RB",
 				"showDevDebugOutput": "raw"
 			}
