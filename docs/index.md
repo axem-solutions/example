@@ -8,7 +8,7 @@ Before beginning, we recommend that you first read the DEM
 In this tutorial you'll learn how to create, install, and manage containerized Development 
 Environments on Linux, and use them with [VS Code](https://code.visualstudio.com/). 
 
-> DEM v0.3.0 or later is needed to follow this tutorial.
+> DEM v0.4.0 or later is needed to follow this tutorial.
 
 !!! note
 
@@ -28,7 +28,7 @@ The tutorial covers the following topics:
 3. How to create a new Development Environment from the containerized tools of your choice
 
 By completing this tutorial, you should be able to set up a working Development Environment, which
-you can use to create embedded applications.
+can be used to create embedded applications.
 
 !!! tip
 
@@ -50,7 +50,7 @@ provided by ST. The example project's Development Environment will consist of th
 
 - Build system: [make](https://www.gnu.org/software/make/#documentation)
 - Toolchain: [gnu-arm-none-eabi](https://gcc.gnu.org/onlinedocs/)
-- Debugger and deployer: [stlink-org](https://github.com/stlink-org/stlink)
+- Debugger: [stlink-org](https://github.com/stlink-org/stlink)
 - Test environment: [CppUTest](http://cpputest.github.io/)
 
 For demonstration purposes, we'll be using VS Code as the editor. If you'd like to use these tool 

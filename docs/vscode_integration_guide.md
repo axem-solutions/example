@@ -17,12 +17,17 @@ Copy and paste the following task descriptions into the tasks.json file:
         {
             "label": "Build Project",
             "type": "shell",
-            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/make_gnu_arm make"
+            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/make_gnu-arm:13.2 make",
+            "problemMatcher": [],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
         },
         {
             "label": "Deploy to target",
             "type": "shell",
-            "command": "docker run --privileged --rm -v \"$(pwd)\":/work axemsolutions/stlink_org /bin/sh -c \"cd build; st-flash write tutorial.bin 0x8000000\""
+            "command": "docker run --privileged --rm -v \"$(pwd)\":/work axemsolutions/stlink-org:1.8.0 /bin/sh -c \"cd build; st-flash write boardtest.bin 0x8000000\""
         },
         {
             "label": "Run unit tests",
@@ -66,20 +71,20 @@ Create a launch.json file in the .vscode directory and add the following configu
 
 ``` json title="launch.json"
 {
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "cwd": "${workspaceRoot}",
-            "executable": "${workspaceRoot}/build/tutorial.elf",
-            "name": "Debug Microcontroller",
-            "request": "launch",
-            "type": "cortex-debug",
-            "servertype": "external",
-            "gdbTarget": "stlink_org_container:4242",
-            "armToolchainPath": "/opt/gcc-arm/bin",
-            "device": "STM32F103RB"
-        }
-    ]
+	"version": "0.2.0",
+	"configurations": [
+			{
+				"cwd": "${workspaceRoot}",
+				"executable": "${workspaceRoot}/build/tutorial.elf",
+				"name": "Debug Microcontroller",
+				"request": "launch",
+				"type": "cortex-debug",
+				"servertype": "external",
+				"gdbTarget": "stlink-org_container:4242",
+				"armToolchainPath": "/opt/gnu/arm-none-eabi-gnu-toolchain-13.2/bin",
+				"device": "STM32F103RB"
+			}
+	]
 }
 ```
 
@@ -103,9 +108,9 @@ name to an IP address.
 ### **Debug in dev container**
 
 The VSCode needs to be configured to install the Cortex-Debug extension for the dev container 
-environment. The dev container in this case runs the axemsolutions/make_gnu_arm image, referenced as 
-the `gdb-client` service. Create a new directory called `.devcontainer` in the project root and add 
-the following file:
+environment. The dev container in this case runs the axemsolutions/make_gnu-arm:13.2 image, 
+referenced as the `gdb-client` service. Create a new directory called `.devcontainer` in the 
+project root and add the following file:
 
 ``` json title="devcontainer.json"
 {
@@ -134,8 +139,8 @@ containers.
 ``` yaml title="docker-compose.yml"
 services:
   gdb-client:
-    image: axemsolutions/make_gnu_arm
-    container_name: make_gnu_arm_container
+    image: axemsolutions/make_gnu-arm:13.2
+    container_name: make_gnu-arm_container
     networks:
       - gdb-net
     volumes:
@@ -143,8 +148,8 @@ services:
     command: /bin/sh -c "while sleep 100; do :; done"
 
   gdb-server:
-    image: axemsolutions/stlink_org
-    container_name: stlink_org_container
+    image: axemsolutions/stlink-org:1.8.0
+    container_name: stlink-org_container
     networks:
       - gdb-net
     volumes:
