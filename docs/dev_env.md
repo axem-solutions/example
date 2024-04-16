@@ -14,12 +14,12 @@ catalogs:
 After a clean installation, you have the axem catalog enabled by default. 
 You can list the available Development Environments in all available catalogs:
 
-    dem list --all --env
+    dem list --cat
 
 For this tutorial, we are going to use the **Tutorial** Development Environment. You can get more 
 information about it by the following command:
 
-    dem info Tutorial
+    dem info --cat Tutorial
 
 Clone the Tutorial Development Environment's decriptor to your local machine:
 

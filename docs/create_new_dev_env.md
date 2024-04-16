@@ -3,8 +3,8 @@
 You can create new Development Environments from containerized tools. The tool images can be 
 present:
 
-- locally: `dem list --local --tool`
-- in registry: `dem list --all --tool`
+- locally: `dem list-tools`
+- in registry: `dem list-tools --reg`
 
 As an example let's create another, alternative Environment for our target with the following
 elements:
@@ -105,9 +105,9 @@ If you'd like to share the newly created alt_env, first export it:
 
 This will create the alt_env.json file in your current directory.  
 
-On the other host, the Development Environment descriptor can be loaded:
+On the other host, the Development Environment descriptor can be imported:
 
-    dem load alt_env.json
+    dem import alt_env.json
 
 And finally, the Development Environment can be installed:
 
