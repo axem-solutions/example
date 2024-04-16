@@ -8,7 +8,7 @@ Before beginning, we recommend that you first read the DEM
 In this tutorial you'll learn how to create, install, and manage containerized Development 
 Environments on Linux, and use them with [VS Code](https://code.visualstudio.com/). 
 
-> DEM v0.4.0 or later is needed to follow this tutorial.
+> DEM v0.5.0 or later is needed to follow this tutorial.
 
 !!! note
 
