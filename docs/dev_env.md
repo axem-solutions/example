@@ -43,8 +43,12 @@ The DEM will pull the images we saw after the `dem info Tutorial` command:
     registries.
 
 If you issue the `dem info Tutorial` command again, you will see that the required images are now 
-available locally. Running `dem list --local --env` lists the local Development Environments, so in 
-our case, you should see the Tutorial Development Environment.
+available locally. Running `dem list` lists the local Development Environments, so you should see 
+the Tutorial Development Environment.
+
+Finally, to avoid typing the Dev Env name later on, you can set the Tutorial as the default one:
+
+    dem set-default Tutorial
 
 Now you are ready to make embedded software!
 
