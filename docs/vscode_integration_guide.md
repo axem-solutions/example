@@ -17,7 +17,7 @@ Copy and paste the following task descriptions into the tasks.json file:
         {
             "label": "Build Project",
             "type": "shell",
-            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/make_gnu-arm:13.2 make",
+            "command": "dem run build",
             "problemMatcher": [],
             "group": {
                 "kind": "build",
@@ -27,12 +27,12 @@ Copy and paste the following task descriptions into the tasks.json file:
         {
             "label": "Deploy to target",
             "type": "shell",
-            "command": "docker run --privileged --rm -v \"$(pwd)\":/work axemsolutions/stlink-org:1.8.0 /bin/sh -c \"cd build; st-flash write boardtest.bin 0x8000000\""
+            "command": "dem run deploy"
         },
         {
             "label": "Run unit tests",
             "type": "shell",
-            "command": "docker run --rm -v \"$(pwd)\":/work axemsolutions/cpputest /bin/sh -c \"cd app/test; make\""
+            "command": "dem run test"
         }
     ]
 }
