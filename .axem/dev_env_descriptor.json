@@ -2,29 +2,21 @@
     "name": "Tutorial",
     "tools": [
         {
-            "type": "build system",
-            "image_name": "axemsolutions/make_gnu_arm",
-            "image_version": "latest"
-        },
-        {
-            "type": "toolchain",
-            "image_name": "axemsolutions/make_gnu_arm",
-            "image_version": "latest"
-        },
-        {
-            "type": "debugger",
-            "image_name": "axemsolutions/stlink_org",
-            "image_version": "latest"
-        },
-        {
-            "type": "deployer",
-            "image_name": "axemsolutions/stlink_org",
-            "image_version": "latest"
-        },
-        {
-            "type": "test framework",
             "image_name": "axemsolutions/cpputest",
             "image_version": "latest"
+        },
+        {
+            "image_name": "axemsolutions/make_gnu-arm",
+            "image_version": "13.2"
+        },
+        {
+            "image_name": "axemsolutions/stlink-org",
+            "image_version": "1.8.0"
         }
-    ]
+    ],
+    "tasks": {
+        "build": "docker run --rm -v \"/home/murai/axem/projects/varian/example\":/work axemsolutions/make_gnu-arm:13.2 make",
+        "test": "docker run --rm -v \"/home/murai/axem/projects/varian/example\":/work axemsolutions/cpputest /bin/sh -c \"cd app/test; make\"",
+        "deploy": "docker run --privileged --rm -v \"/home/murai/axem/projects/varian/example\":/work axemsolutions/stlink-org:1.8.0 /bin/sh -c \"cd build; st-flash write tutorial.bin 0x8000000\""
+    }
 }
