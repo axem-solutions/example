@@ -1,5 +1,5 @@
 {
-    "name": "Tutorial",
+    "name": "Tutorial_linux",
     "tools": [
         {
             "image_name": "axemsolutions/cpputest",
@@ -15,8 +15,8 @@
         }
     ],
     "tasks": {
-        "build": "docker run --rm -v \"/home/murai/axem/projects/varian/example\":/work axemsolutions/make_gnu-arm:13.2 make",
-        "test": "docker run --rm -v \"/home/murai/axem/projects/varian/example\":/work axemsolutions/cpputest /bin/sh -c \"cd app/test; make\"",
-        "deploy": "docker run --privileged --rm -v \"/home/murai/axem/projects/varian/example\":/work axemsolutions/stlink-org:1.8.0 /bin/sh -c \"cd build; st-flash write tutorial.bin 0x8000000\""
+        "build": "docker run --rm -v \"$(pwd):/work\" axemsolutions/make_gnu-arm:13.2 make",
+        "test": "docker run --rm -v \"$(pwd):/work\" axemsolutions/cpputest /bin/sh -c \"cd app/test; make\"",
+        "deploy": "docker run --privileged --rm -v \"$(pwd):/work\" axemsolutions/stlink-org:1.8.0 /bin/sh -c \"cd build; st-flash write tutorial.bin 0x8000000\""
     }
 }
